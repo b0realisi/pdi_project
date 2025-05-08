@@ -1,32 +1,16 @@
 # Proyecto Final de Procesamiento Digital de Imágenes
 
-Este proyecto aplica técnicas de mejora y restauración sobre imágenes antiguas. No se utiliza Machine Learning. Está desarrollado en Python con un enfoque modular y orientado a objetos.
+Este proyecto aplica técnicas de mejora y restauración sobre imágenes antiguas. Está desarrollado en Python con un enfoque modular y orientado a objetos.
 
 ## Estructura del proyecto
 
-PDI_PROJECT/
-│
-├── data/
-│ ├── input/ # Imágenes originales
-│ └── output/ # Imágenes restauradas
-│
-├── src/
-│ ├── core/ # Clase base Image
-│ ├── io/ # Lector y escritor de imágenes
-│ ├── preprocessing/ # Filtros de mejora (brillo, suavizado, etc.)
-│ ├── restoration/ # Restaurador que orquesta los filtros
-│ ├── cli.py # Argumentos desde la línea de comandos
-│ └── main.py # Punto de entrada
-│
-├── README.md
-├── requirements.txt
-└── informe_tecnico.pdf
+```nPDI_PROJECT/`n│`n├── data/`n│   ├── input/         # Imágenes originales`n│   └── output/        # Imágenes procesadas`n│`n├── src/`n│   ├── core/                  # Clase base Image`n│   ├── io/                    # Lector y escritor de imágenes`n│   ├── preprocessing/         # Filtros individuales`n│   ├── restoration/           # Clases orquestadoras (ImageRestorer, ImageEnhancer)`n│   ├── cli.py                 # CLI basada en argparse`n│   └── main.py                # Punto de entrada principal`n│`n├── README.md`n├── requirements.txt`n└── informe_tecnico.md`n````n`
 
 
 ## Instalación
 
 1. Clona el repositorio o copia el proyecto.
-2. Crea un entorno virtual (opcional pero recomendado):
+2. Crea un entorno virtual:
 
 ```bash
 python -m venv venv
@@ -34,7 +18,7 @@ source venv/bin/activate  # En Linux/Mac
 venv\Scripts\activate     # En Windows
 ```
 
-3. Instala las dependencias necesarias
+3. Instalar las dependencias necesarias
 ```bash
 pip install -r requirements.txt
 ```
@@ -44,3 +28,14 @@ pip install -r requirements.txt
 ```bash
 python src/main.py --input data/input/imagen1.jpg --output data/output/imagen1_restaurada.jpg
 ```
+
+### Modo personalizado (seleccioná qué filtros aplicar):
+
+```bash
+python -m src.main --input data/input/foto1.jpg --output data/output/foto1_custom.jpg --brightness --equalize --sobel
+```
+#### Filtros disponibles:`n- `--brightness` → Ajusta el brillo (factor fijo 1.2)`n- `--equalize` → Ecualización de histograma (mejora el contraste)`n- `--gaussian` → Suavizado con filtro Gaussiano (kernel 5)`n- `--sobel` → Realce de bordes con operador de Sobel`n`n
+
+## Créditos
+
+Desarrollado como proyecto final para la materia **Procesamiento de Imágenes Digitales**
