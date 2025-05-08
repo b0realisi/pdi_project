@@ -46,7 +46,11 @@ python src/main.py --input data/input/imagen1.jpg --output data/output/imagen1_r
 ```bash
 python -m src.main --input data/input/foto1.jpg --output data/output/foto1_custom.jpg --brightness --equalize --sobel
 ```
-#### Filtros disponibles:`n- `--brightness` → Ajusta el brillo (factor fijo 1.2)`n- `--equalize` → Ecualización de histograma (mejora el contraste)`n- `--gaussian` → Suavizado con filtro Gaussiano (kernel 5)`n- `--sobel` → Realce de bordes con operador de Sobel`n`n
+#### Filtros disponibles:
+--brightness` → Ajusta el brillo (factor fijo 1.2)
+--equalize` → Ecualización de histograma (mejora el contraste)
+--gaussian` → Suavizado con filtro Gaussiano (kernel 5)
+--sobel` → Realce de bordes con operador de Sobel
 
 ## Créditos
 
