@@ -35,7 +35,7 @@ venv\Scripts\activate     # En Windows
 pip install -r requirements.txt
 ```
 
-4. Uso
+4. Usos
 
 ```bash
 python src/main.py --input data/input/imagen1.jpg --output data/output/imagen1_restaurada.jpg
