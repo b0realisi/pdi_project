@@ -4,7 +4,19 @@ Este proyecto aplica técnicas de mejora y restauración sobre imágenes antigua
 
 ## Estructura del proyecto
 
-```nPDI_PROJECT/`n│`n├── data/`n│   ├── input/         # Imágenes originales`n│   └── output/        # Imágenes procesadas`n│`n├── src/`n│   ├── core/                  # Clase base Image`n│   ├── io/                    # Lector y escritor de imágenes`n│   ├── preprocessing/         # Filtros individuales`n│   ├── restoration/           # Clases orquestadoras (ImageRestorer, ImageEnhancer)`n│   ├── cli.py                 # CLI basada en argparse`n│   └── main.py                # Punto de entrada principal`n│`n├── README.md`n├── requirements.txt`n└── informe_tecnico.md`n````n`
+PDI_PROJECT/
+│
+├── data/
+│ ├── input/ # Imágenes originales
+│ └── output/ # Imágenes procesadas
+│
+├── src/
+│ ├── core/ # Representación de imágenes
+│ ├── io/ # Lectura y guardado
+│ ├── preprocessing/ # Filtros individuales
+│ ├── restoration/ # Clases orquestadoras (ImageRestorer, ImageEnhancer)
+│ ├── cli.py # Línea de comandos
+│ └── main.py # Punto de entrada
 
 
 ## Instalación
