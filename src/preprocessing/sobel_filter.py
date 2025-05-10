@@ -1,5 +1,7 @@
 # src/preprocessing/sobel_filter.py
 
+# Detección de los bordes en la imagen, resaltando las transiciones de intensidad.
+
 import cv2
 import numpy as np
 from src.core.image import Image
