@@ -1,5 +1,7 @@
 # src/preprocessing/histogram_equalizer.py
 
+# Mejoras en el contraste de la imagen al distribuir uniformemente los niveles de intensidad.
+
 import cv2
 import numpy as np
 from src.core.image import Image
