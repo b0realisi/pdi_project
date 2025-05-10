@@ -1,5 +1,7 @@
 # src/preprocessing/gaussian_filter.py
 
+# Suaviza la imagen para reducir el ruido y las pequeñas imperfecciones.
+
 import cv2
 from src.core.image import Image
 
