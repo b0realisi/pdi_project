@@ -4,27 +4,33 @@ Este proyecto aplica técnicas de mejora y restauración sobre imágenes antigua
 
 ## Estructura del proyecto
 
+```
 PDI_PROJECT/
-│
 ├── data/
-│   ├── input/         # Imágenes originales
-│   └── output/        # Imágenes procesadas
+│   ├── input/               # Imágenes originales
+│   └── output/              # Imágenes procesadas
 │
 ├── src/
-│   ├── core/                  # Representación de imágenes
-│   ├── io/                    # Lectura y guardado
-│   ├── preprocessing/         # Filtros individuales (incluye coloreado falso)
-│   ├── restoration/           # Clases orquestadoras
-│   ├── cli.py
-│   └── main.py
+│   ├── core/                # Representación de imágenes
+│   ├── io/                  # Lectura y guardado
+│   ├── preprocessing/       # Filtros individuales
+│   ├── restoration/         # Clases orquestadoras
+│   ├── cli.py               # Interfaz CLI
+│   └── main.py              # Punto de entrada
 │
 ├── scripts/
-│   ├── batch_process.py       # Procesamiento por lotes
-│   └── show_histogram.py      # Comparación de histogramas
+│   ├── batch_process.py     # Procesamiento por lotes
+│   └── show_histogram.py    # Comparación de histogramas
 │
+├── tests/
+│   └── test_basic_pipeline.py # Prueba automática con pytest
+│
+├── Dockerfile
+├── docker-compose.yml
 ├── README.md
 ├── requirements.txt
 └── informe_tecnico.md
+```
 
 ---
 
@@ -62,7 +68,7 @@ python src/main.py --input data/input/imagen1.jpg --output data/output/imagen1_r
 ### Modo personalizado (selección de filtros a aplicar):
 
 ```bash
-python -m src.main --input data/input/foto1.jpg --output data/output/foto1_custom.jpg --brightness --equalize --sobel
+python -m src.main --input data/input/foto1.jpg --output data/output/foto1_custom.jpg --brightness --equalize --contrast --clahe
 ```
 #### Filtros disponibles:
 
@@ -90,6 +96,7 @@ python -m src.main --input data/input/foto1.jpg --output data/output/foto1_custo
 
 - `--inpaint` + `--inpaint-radius` → Reconstrucción simple con máscara fija
 
+
 ### Scripts adicionales
 
 Muestra el histograma antes y después de aplicar ecualización:
@@ -104,6 +111,50 @@ Aplica el pipeline automático a todas las imágenes en data/input/ y guarda en 
 python scripts/batch_process.py
 
 ```
+
+## Docker (opcional)
+
+### ¿Para qué sirve?
+Permite correr el proyecto sin instalar dependencias localmente. Empaqueta todo en un contenedor.
+
+### Construir imagen manualmente:
+```bash
+docker build -t pdi_app .
+```
+
+### Ejecutar contenedor:
+```bash
+docker run --rm -v $(pwd)/data:/app/data pdi_app --input data/input/foto1.jpg --output data/output/foto1_out.jpg --brightness --equalize
+```
+
+### Usar docker-compose (más fácil):
+```bash
+docker-compose up
+```
+
+- Se puede editar el archivo `docker-compose.yml` para cambiar filtros y nombres de archivos.
+
+---
+
+## Automatización de pruebas
+
+El proyecto incluye un test automático con `pytest`:
+
+```bash
+pytest
+```
+
+Ubicación del test:
+```
+tests/test_basic_pipeline.py
+```
+
+### ¿Qué verifica?
+- Que el filtro de brillo se aplique correctamente.
+- Que la imagen resultante exista y tenga las mismas dimensiones que la original.
+
+---
+
 ## Créditos
 
 Desarrollado como proyecto final para la materia **Procesamiento de Imágenes Digitales**
