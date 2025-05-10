@@ -1,0 +1,13 @@
+# Orquesta y ejecuta el contenedor usando la imagen definida en dockerfile
+# define qué imagen procesar y qué filtros aplicar
+
+version: "3.8"
+
+services:
+  pdi:
+    build: .
+    container_name: pdi_project
+    volumes:
+      - ./data/input:/app/data/input
+      - ./data/output:/app/data/output
+    command: ["--input", "data/input/foto1.jpg", "--output", "data/output/foto1_out.jpg", "--brightness", "--equalize"]
