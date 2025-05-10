@@ -1,4 +1,5 @@
 # src/restoration/image_restorer.py
+# Este archivo no se utiliza actualmente desde la CLI, pero puede ser usado como módulo auxiliar o de prueba
 
 from src.core.image import Image
 from src.preprocessing.brightness_adjuster import BrightnessAdjuster
@@ -7,7 +8,7 @@ from src.preprocessing.histogram_equalizer import HistogramEqualizer
 from src.preprocessing.sobel_filter import SobelFilter
 
 class ImageRestorer:
-    def __init__(self, brightness_factor: float = 1.2, kernel_size: int = 5):
+    def __init__(self, brightness_factor: float = 1.0, kernel_size: int = 5):
         """
         Inicializa el restaurador de imágenes con parámetros predeterminados.
         
