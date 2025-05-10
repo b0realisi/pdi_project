@@ -1,5 +1,7 @@
 # src/preprocessing/brightness_adjuster.py
 
+# Modifica la intensidad de los px para mejorar la visibilidad general de la imagen.
+
 import numpy as np
 from src.core.image import Image
 
